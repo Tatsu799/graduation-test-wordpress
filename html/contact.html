@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"content="ビジネスに効果的なウェブサイトを作成いたします。">
+    <meta name="keywords" content="web制作、ホームページ、コーポレートサイト制作">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:url" content="#">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="WEBLab">
+    <meta property="og:description"content="ビジネスに効果的なウェブサイトを作成いたします。">
+    <meta property="og:site_name" content="WEBLab">
+    <meta property="og:image" content="">
+    <link rel="icon" href="favicon.ico">
+    <link rel="apple-touch-icon" sizes="180×180" href="#">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <!-- jquery -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css">
+    <title>WEBLab</title>
+</head>
+<body>
+    <header class="header" id="header">
+        <div class="header-wrapper">
+            <a href="../index.html" class="header-wrapper__logo">
+                <img src="../image/logo.png" alt="ロゴ画像">
+            </a>
+            <nav class="header-wrapper__nav">
+                <ul class="header-wrapper__nav__list">
+                    <li class="header-wrapper__nav__list__item">
+                        <a href="company.html">
+                            <p>会社概要</p>
+                        </a>
+                    </li>
+                    <li class="header-wrapper__nav__list__item">
+                        <a href="works.html">
+                            <p>制作実績</p>
+                        </a>
+                    </li>
+                    <li class="header-wrapper__nav__list__item">
+                        <a href="service.html">
+                            <p>サービス紹介</p>
+                        </a>
+                    </li>
+                    <li class="header-wrapper__nav__list__item">
+                        <a href="price.html">
+                            <p>制作料金</p>
+                        </a>
+                    </li>
+                    <li class="header-wrapper__nav__list__item">
+                        <a href="news.html">
+                            <p>ニュース</p>
+                        </a>
+                    </li>
+                    <li class="header-wrapper__nav__list__item __bg">
+                        <a href="contact.html">お問い合わせ</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="drawer"></div>
+    </header>
+    <main>
+        <section class="contact" id="contact">
+            <div class="contact-wrapper">
+                <div class="contact-wrapper__top __top-bg-text">
+                    <h2 class="top-ttl">お問い合わせ
+                        <p>Contact</p>
+                    </h2>
+                    <div class="contact-wrapper__top__img">
+                        <img src="../image/img-contact.jpg" alt="トップ画像">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="contact-form" id="contact-form">
+            <div class="contact-form-wrapper">
+                <div class="contact-form-wrapper__ttl fadeRightTrigger">
+                    <h2 class="h2-ttl">お問い合わせフォーム
+                        <p>Contact Form</p>
+                    </h2>
+                    <div class="contact-form-wrapper__ttl__txt">
+                        <p>
+                            制作に関するお問合せ、お見積もりを下記フォームよりお問合せください。<br>
+                            お問合せの内容を確認後担当者よりご連絡させて頂きます。
+                        </p>
+                    </div>
+                </div>
+                <div class="contact-form-wrapper__con fadeUpTrigger">
+                    <form action="" id="form" method="POST" class="contact-form-wrapper__con__form">
+                        <div class="contact-form-wrapper__con__form__box">
+                            <label for="company-name" class="contact-form-wrapper__con__form__box__ttl">
+                                <p>会社名<span>必須</span></p>
+                            </label>
+                            <input type="text" class="contact-form-wrapper__con__form__box__input" id="company-name" name="Company-name" placeholder="例）株式会社 WEBLab">
+                        </div>
+                        <div class="contact-form-wrapper__con__form__box">
+                            <label for="name" class="contact-form-wrapper__con__form__box__ttl">
+                                <p>ご担当者名<span>必須</span></p>
+                            </label>
+                            <input type="text" class="contact-form-wrapper__con__form__box__input" id="name" name="Name" placeholder="例）山田 太郎">
+                        </div>
+                        <div class="contact-form-wrapper__con__form__box">
+                            <label for="tel" class="contact-form-wrapper__con__form__box__ttl">
+                                <p>電話番号<span>必須</span></p>
+                            </label>
+                            <input type="tel" class="contact-form-wrapper__con__form__box__input" id="tel" name="Tel" placeholder="例）0123-11-1111">
+                        </div>
+                        <div class="contact-form-wrapper__con__form__box">
+                            <label for="email" class="contact-form-wrapper__con__form__box__ttl">
+                                <p>メールアドレス<span>必須</span></p>
+                            </label>
+                            <input type="email" class="contact-form-wrapper__con__form__box__input" id="email" name="Email" placeholder="例）info@sample.com">
+                        </div>
+                        <div class="contact-form-wrapper__con__form__box">
+                            <label for="massage" class="contact-form-wrapper__con__form__box__ttl">
+                                <p>お問い合わせ内容<span>必須</span></p>
+                            </label>
+                            <textarea class="contact-form-wrapper__con__form__box__textarea" id="massage" name="Message" placeholder="例）株式会社 WEBLab"></textarea>
+                        </div>
+                        <div class="contact-form-wrapper__con__form__box">
+                            <button type="submit" class="contact-form-wrapper__con__form__box__btn">送信する</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="bg-footer"></div>
+        </section>   
+    </main>
+    <footer class="footer" id="footer">
+        <div class="footer-wrapper">
+            <div class="footer-wrapper__top">
+                <div class="footer-wrapper__top__logo">
+                    <img src="../image/logo.png" alt="logo">
+                </div>
+                <div class="footer-wrapper__top__icon">
+                    <div class="tw">
+                        <img src="../image/icon-tw.png" alt="icon">
+                    </div>
+                    <div class="fb">
+                        <img src="../image/icon-fb.png" alt="icon">
+                    </div>
+                </div>
+            </div>
+            <div class="footer-wrapper__con">
+                <div class="footer-wrapper__con__left">
+                    <p class="address">〒111-1111<br> 
+                                        埼玉県さいたま市1-11-11
+                    </p>
+                    <p class="tel">
+                        TEL 12-345-6789<br>
+                        営業時間 9:00～17:00<br> 
+                        定休日 土日祝<br>
+                    </p>
+                </div>
+                <div class="footer-wrapper__con__right">
+                    <div class="footer-wrapper__con__right__nav">
+                        <div class="footer-wrapper__con__right__nav__item">
+                            <a href="../index.html"><p>HOME</p></a>
+                            <a href="company.html"><p>会社概要</p></a>
+                            <a href="works.html"><p>制作実績</p></a>
+                        </div>
+                        <div class="footer-wrapper__con__right__nav__item">
+                            <a href="service.html"><p>サービス紹介</p></a>
+                            <a href="price.html"><p>制作料金</p></a>
+                            <a href="news.html"><p>ニュース</p></a>
+                        </div>
+                        <div class="footer-wrapper__con__right__nav__item">
+                            <a href="contact.html"><p>お問い合わせ</p></a>
+                            <a href="../index.html"><p>サイトマップ</p></a>
+                            <a href="../index.html"><p>プライバシーポリシー</p></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <small>© WEBLab. All Rights Reserved.</small>
+        </div>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+    <script type="text/javascript" src="../js/common.js"></script>
+</body>
+</html>
