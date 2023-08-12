@@ -122,15 +122,27 @@ body.nav-open header .drawer {
 }
 
 .header {
+    position: -webkit-sticky;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background-color: rgba(255, 255, 255, 0.8);
+    z-index: 8888;
+    -webkit-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
     &-wrapper {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        height: 80px;
-        position: fixed;
-        background-color: rgba(255, 255, 255, 0.8);
-        z-index: 8888;
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
         img {
             width: 100%;
             @include mq(sp_1) {
@@ -139,53 +151,73 @@ body.nav-open header .drawer {
             }
         }
         &__nav {
-            width: 60%;
-            @include mq(pc_max) {
-                width: 70%;
-            }
+            width: 70%;
             @include mq(sp_1) {
                 width: 100%;
             }
             &__list {
+                display: -webkit-box;
+                display: -ms-flexbox;
                 display: flex;
-                justify-content: space-between;
-                align-items: center;
+                -webkit-box-pack: justify;
+                    -ms-flex-pack: justify;
+                        justify-content: space-between;
+                -webkit-box-align: center;
+                    -ms-flex-align: center;
+                        align-items: center;
                 width: 100%;
                 font-weight: 600;
                 color: $main-black;
                 &__item {
-                    p {
+                    a {
                         position: relative;
                         &::after {
                             position: absolute;
                             content: "";
-                            top: 2rem;
+                            top: 30px;
                             left: 0; 
                             width: 100%;
                             height: 2px;
-                            background: black;
+                            background: $main-black;
+                            -webkit-transition: all 0.3s;
+                            -o-transition: all 0.5s;
+                            -webkit-transition: all 0.5s;
                             transition: all 0.5s;
-                            transform: scale(0,0);
+                            -webkit-transform: scale(0,0);
+                                -ms-transform: scale(0,0);
+                                    transform: scale(0,0);
                         }
                         &:hover::after {
-                            transform: scale(1,1);
+                            -webkit-transform: scale(1,1);
+                                -ms-transform: scale(1,1);
+                                    transform: scale(1,1);
                         }
                     }
                 }
             }
             &__list .__bg {
                 background-color: $main-black;
-                height: 5rem;
-                width: 10rem;
+                height: 81px;
+                width: 180px;
+                display: -webkit-box;
+                display: -ms-flexbox;
                 display: flex;
-                justify-content: center;
-                align-items: center;
-                z-index: 9998;
+                top: 0;
+                left: 0;
+                -webkit-box-pack: center;
+                    -ms-flex-pack: center;
+                        justify-content: center;
+                -webkit-box-align: center;
+                    -ms-flex-align: center;
+                        align-items: center;
+                z-index: 9999;
                 @include mq(sp_1) {
                     width: auto;
                 }
                 &:hover {
                     opacity: 0.5;
+                    -webkit-transition: all 0.5s;
+                    -o-transition: all 0.5s;
                     transition: all 0.5s;
                 }
                 a {
@@ -196,12 +228,31 @@ body.nav-open header .drawer {
     }
 }
 
+.header.hide {
+    -webkit-transform: translateY(-101%);
+        -ms-transform: translateY(-101%);
+            transform: translateY(-101%);
+    -webkit-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
 .top {
     .slider1 img {
         width: 100%;
         height: 100vh;
-        object-fit: cover;
+        -o-object-fit: cover;
+           object-fit: cover;
         aspect-ratio: 2 / 1;
+        @include mq(pc_max) {
+            height: 75vh;
+        }
+        @include mq(sp_1) {
+            height: 90vh;
+        }
+        @include mq(sp_2) {
+            height: 100vh;
+        }
     }
     &-wrapper {
         position: relative;
@@ -212,6 +263,15 @@ body.nav-open header .drawer {
             height: 100vh;
             position: relative;
             z-index: 0;
+            @include mq(pc_max) {
+                height: 75vh;
+            }
+            @include mq(sp_1) {
+                height: 90vh;
+            }
+            @include mq(sp_2) {
+                height: 100vh;
+            }
             &::before {
                 position: absolute;
                 display: block;
@@ -228,7 +288,8 @@ body.nav-open header .drawer {
             img {
                 width: 100%;
                 height: 100%;
-                object-fit: cover;
+                -o-object-fit: cover;
+                   object-fit: cover;
                 aspect-ratio: 2 / 1;
             }
         }
@@ -247,7 +308,11 @@ body.nav-open header .drawer {
                 bottom: 0;
             }
             @include mq(sp_1) {
-                top: 20rem;
+                top: 15rem;
+                left: 0;
+            }
+            @include mq(sp_2) {
+                top: 13rem;
                 left: 0;
             }
             h1 {
@@ -258,15 +323,26 @@ body.nav-open header .drawer {
                     font-size: 2rem;
                     text-align: center;
                 }
+                @include mq(sp_2) {
+                    font-size: 1.5rem;
+                    text-align: center;
+                }
             }
             p {
                 color: #fff;
-                width: 30%;
+                width: 35%;
                 @include mq(tab) {
                     width: 100%;
                     padding-top: 2.5rem;
                 }
                 @include mq(sp_1) {
+                    width: 90%;
+                    padding-top: 2.5rem;
+                    text-align: center;
+                    margin: 0 auto;
+                }
+                @include mq(sp_2) {
+                    font-size: 0.9rem;
                     width: 90%;
                     padding-top: 2.5rem;
                     text-align: center;
@@ -297,6 +373,8 @@ body.nav-open header .drawer {
             background-size: 20rem;
         }
         &__con {
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
             width: 100%;
             height: 50rem;
@@ -318,6 +396,9 @@ body.nav-open header .drawer {
                     position: static;
                     width: 100%;
                     height: 10rem;
+                }
+                @include mq(sp_2) {
+                    height: 8rem;
                 }
                 &__ttl {
                     position: absolute;
@@ -347,6 +428,10 @@ body.nav-open header .drawer {
                     width: 100%;
                     height: 50%;
                 }
+                @include mq(sp_1) {
+                    width: 100%;
+                    height: 100%;
+                }
                 &__txt {
                     width: 90%;
                     height: 80%;
@@ -361,6 +446,10 @@ body.nav-open header .drawer {
                     @include mq(sp_1) {
                         height: 100%;
                         font-size: 0.9rem;
+                        margin-top: unset;
+                    }
+                    @include mq(sp_2) {
+                        height: 100%;
                     }
                 }
             }
@@ -373,10 +462,6 @@ body.nav-open header .drawer {
     padding: 5rem 0 ;
     color: $main-black;
     text-align: center;
-    @include mq(sp_1) {
-        font-size: 2.5rem;
-        padding: 4rem 0 ;
-    }
     p {
         font-size: 1rem;
         color: $main-black;
@@ -388,10 +473,6 @@ body.nav-open header .drawer {
         width: 100%;
         height: 100%;
         background-color: $main-black;
-        padding-bottom: 8rem;
-        @include mq(sp_1) {
-            padding-bottom: 6rem;
-        }
         .__bg-text {
             width: 100%;
             background-image: url("../image/txt-WORKS-grey.png");
@@ -403,6 +484,7 @@ body.nav-open header .drawer {
             }
         }
         &__ttl {
+            width: 100%;
             .ttl {
                 width: 30%;
                 color: #fff;
@@ -414,6 +496,7 @@ body.nav-open header .drawer {
                 }
                 @include mq(sp_1) {
                     width: 100%;
+                    padding: 3rem 0 3rem 0;
                 }
             }
             p {
@@ -423,19 +506,26 @@ body.nav-open header .drawer {
         .slider {
             width: 90%;
             margin: 0 auto;
+            @include mq(pc_max) {
+                width: 95%;
+            }
             @include mq(tab) {
-                width: 85%;
+                width: 93%;
             }
             @include mq(sp_1) {
-                width: 80%;
+                width: 90%;
             }
             .slick-slide {
                 margin: 10px;
             }
         }
         &__con {
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
-            justify-content: center;
+            -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                    justify-content: center;
             width: 100%;
             &__box {
                 width: 100%;
@@ -445,13 +535,30 @@ body.nav-open header .drawer {
                     img {
                         width: 100%;
                         height: 30vh;
-                        object-fit: cover;
-                        @include mq(sp_1) {
-                            height: 35vh;
+                        -o-object-fit: cover;
+                           object-fit: cover;
+                        aspect-ratio: 2 / 1;
+                        -webkit-transform: scale(1);
+                            -ms-transform: scale(1);
+                                transform: scale(1);
+                        -webkit-transition: all 0.5s ease-in-out;
+                        -o-transition: all 0.5s ease-in-out;
+                        transition: all 0.5s ease-in-out;
+                        @include mq(pc_max) {
+                            height: 16vh;
                         } 
-                    }
-                    &:hover {
-                        transform: scale(1.1);
+                        @include mq(tab) {
+                            height: 25vh;
+                            width: 100%;
+                        }
+                        &:hover {
+                            -webkit-transform: scale(1.1);
+                                -ms-transform: scale(1.1);
+                                    transform: scale(1.1);
+                            -webkit-transition: all 0.5s ease-in-out;
+                            -o-transition: all 0.5s ease-in-out;
+                            transition: all 0.5s ease-in-out;
+                        }
                     }
                 }
                 &__txt {
@@ -470,11 +577,21 @@ body.nav-open header .drawer {
             &__btn {
                 width: 100%;
                 text-align: center;
-                margin-top: 4rem;
+                padding: 4rem 0 4rem 0;
+                @include mq(tab) {
+                    padding: 4rem 0 4rem 0;
+                }
+                @include mq(sp_1) {
+                    padding: 4remrem 0 4rem 0;
+                }
                 .btn {
                     position: relative;
+                    display: -webkit-box;
+                    display: -ms-flexbox;
                     display: flex;
-                    justify-content: center;
+                    -webkit-box-pack: center;
+                        -ms-flex-pack: center;
+                            justify-content: center;
                     width: 14rem;
                     height: 2rem;
                     border: solid 1px #fff;
@@ -483,6 +600,8 @@ body.nav-open header .drawer {
                     border-radius: 50px 50px 50px 50px;
                     color: #fff;
                     z-index: 10;
+                    -webkit-transition: .25s ease-in-out;
+                    -o-transition: .25s ease-in-out;
                     transition: .25s ease-in-out;
                     @include mq(sp_1) {
                         width: 10rem;
@@ -491,12 +610,18 @@ body.nav-open header .drawer {
                     } 
                     &:hover {
                         border: none;
+                        -webkit-transition: all 0.5s;
+                        -o-transition: all 0.5s;
                         transition: all 0.5s;
                         color: #000;
                         font-weight: 600;
                         &::before {
-                            transform: scaleX(1);
-                            transform-origin: left;
+                            -webkit-transform: scaleX(1);
+                                -ms-transform: scaleX(1);
+                                    transform: scaleX(1);
+                            -webkit-transform-origin: left;
+                                -ms-transform-origin: left;
+                                    transform-origin: left;
                         }
                     }
                     &::before {
@@ -511,10 +636,20 @@ body.nav-open header .drawer {
                         height: 100%;
                         background: #fff;
                         border-radius: 50px 50px 50px 50px;
-                        transform: scaleX(0);
-                        transform-origin: right;
+                        -webkit-transform: scaleX(0);
+                            -ms-transform: scaleX(0);
+                                transform: scaleX(0);
+                        -webkit-transform-origin: right;
+                            -ms-transform-origin: right;
+                                transform-origin: right;
+                        -webkit-transition: all .25s ease-in-out;
+                        -o-transition: all .25s ease-in-out;
                         transition: all .25s ease-in-out;
+                        -webkit-transition-property: -webkit-transform;
+                        transition-property: -webkit-transform;
+                        -o-transition-property: transform;
                         transition-property: transform;
+                        transition-property: transform, -webkit-transform;
                         z-index: -1;
                     }
                 }
@@ -537,12 +672,19 @@ body.nav-open header .drawer {
         width: 1rem;
         height: 1rem;
         border: 2px solid;
+        cursor: pointer;
         border-color: transparent transparent #fff #fff;
         -webkit-transform: rotate(45deg);
             -ms-transform: rotate(45deg);
                 transform: rotate(45deg);  
-        @include mq(sp_1) {
+        @include mq(pc_max) {
+            left: -0.8rem;
+        } 
+        @include mq(tab) {
             left: -1rem;
+        } 
+        @include mq(sp_1) {
+            left: -0.6rem;
         } 
     }
     .next {
@@ -555,12 +697,19 @@ body.nav-open header .drawer {
         width: 1rem;
         height: 1rem;
         border: 2px solid;
+        cursor: pointer;
         border-color: transparent transparent #fff #fff;
         -webkit-transform: rotate(-139deg);
             -ms-transform: rotate(-139deg);
                 transform: rotate(-139deg);
-        @include mq(sp_1) {
+        @include mq(pc_max) {
+            right: -0.8rem;
+        }
+        @include mq(tab) {
             right: -1rem;
+        } 
+        @include mq(sp_1) {
+            right: -0.6rem;
         } 
     }
 }
@@ -594,7 +743,7 @@ body.nav-open header .drawer {
             background-size: 25rem;
             z-index: 100;
             @include mq(tab) {
-                background-position: top 14% left 10%;
+                background-position: top 15% left 5%;
             }
             @include mq(sp_1) {
                 background-position: top 15% left 40%;
@@ -602,14 +751,16 @@ body.nav-open header .drawer {
             }
         }
         &__ttl {
+            width: 100%;
             .ttl {
                 width: 35%;
                 color: $main-black;
                 @include mq(pc_max) {
                     width: 45%;
                 }
-                @include mq(tab) {
+                @include mq(sp_1) {
                     width: 100%;
+                    padding: 4rem 0 4rem 0;
                 }
             }
             p {
@@ -631,37 +782,52 @@ body.nav-open header .drawer {
             }
         }
         &__con {
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
-            justify-content: space-evenly;
-            align-items: center;
+            -webkit-box-pack: space-evenly;
+                -ms-flex-pack: space-evenly;
+                    justify-content: space-evenly;
+            -webkit-box-align: center;
+                -ms-flex-align: center;
+                    align-items: center;
             width: 100%;
             height: 100%;
             @include mq(tab) {
                 display: block;
-                justify-content: none;
-                align-items: none;
+                -webkit-box-pack: none;
+                    -ms-flex-pack: none;
+                        justify-content: none;
+                -webkit-box-align: none;
+                    -ms-flex-align: none;
+                        align-items: none;
                 margin: 0 auto;
             }
             &__box {
                 position: relative;
                 width: 32%;
-                height: 45vh;
+                height: 40vh;
                 margin-top: 5rem;
                 z-index: 50;
-                box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5);
+                -webkit-box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5);
+                        box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5);
                 @include mq(pc_max) {
                     width: 40%;
+                    height: 28vh;
                 }
                 @include mq(tab) {
                     width: 70%;
+                    height: 40vh;
                     margin: 0 auto;
                     margin-top: 5rem;
                 }
                 @include mq(sp_1) {
                     width: 85%;
-                    height: 50vh;
-                    margin: 0 auto;
-                    margin-top: 5rem;
+                    height: 45vh;
+                }
+                @include mq(sp_2) {
+                    width: 85%;
+                    height: 60vh;
                 }
                 &::before {
                     position: absolute;
@@ -677,9 +843,15 @@ body.nav-open header .drawer {
                     height: 100%;
                     background-color: #fff;
                     &__ttl {
+                        display: -webkit-box;
+                        display: -ms-flexbox;
                         display: flex;
-                        justify-content: center;
-                        align-items: center;
+                        -webkit-box-pack: center;
+                            -ms-flex-pack: center;
+                                justify-content: center;
+                        -webkit-box-align: center;
+                            -ms-flex-align: center;
+                                align-items: center;
                         padding: 2.5rem;
                         @include mq(sp_1) {
                             padding: 1.5rem;
@@ -700,25 +872,27 @@ body.nav-open header .drawer {
                         }
                     }
                     &__txt {
+                        width: 80%;
                         .text {
-                            width: 80%;
+                            width: 100%;
                             height: 100%;
                             text-align: left;
-                            transform: translate(15%);
-                            padding: 1rem 0;
+                            -webkit-transform: translate(15%);
+                                -ms-transform: translate(15%);
+                                    transform: translate(15%);
                             font-weight: 600;
                             position: relative;
                             @include mq(sp_1) {
                                 font-size: 1rem;
                             }
                             @include mq(sp_2) {
-                                font-size: 0.9rem;
+                                font-size: 0.8rem;
                             }
                             &::before {
                                 display: inline-block;
                                 position: absolute;
                                 content: "";
-                                top: 28px;
+                                top: 13px;
                                 left: -30px;
                                 right: 0;
                                 width: 15px;
@@ -736,17 +910,24 @@ body.nav-open header .drawer {
             height: 100%;
             text-align: center;
             z-index: 10;
-            padding: 6rem 0 10rem 0;
+            padding: 4rem 0 4rem 0;
             @include mq(tab) {
-                padding: 6rem 0 8rem 0;
+                padding: 4.5rem 0 4.5rem 0;
             }
-            @include mq(tab) {
-                padding: 6rem 0 6rem 0;
+            @include mq(sp_1) {
+                padding: 4rem 0 4rem 0;
             }
             .btn {
                 position: relative;
+                display: -webkit-box;
+                display: -ms-flexbox;
                 display: flex;
-                justify-content: center;
+                -webkit-box-pack: center;
+                    -ms-flex-pack: center;
+                        justify-content: center;
+                -webkit-box-align: center;
+                    -ms-flex-align: center;
+                        align-items: center;
                 width: 14rem;
                 height: 2rem;
                 margin: 0 auto;
@@ -754,6 +935,8 @@ body.nav-open header .drawer {
                 border-radius: 50px 50px 50px 50px;
                 background-color: $main-black;
                 color: #fff;
+                -webkit-transition: .25s ease-in-out;
+                -o-transition: .25s ease-in-out;
                 transition: .25s ease-in-out;
                 @include mq(sp_1) {
                     width: 10rem;
@@ -762,13 +945,19 @@ body.nav-open header .drawer {
                 } 
                 &:hover {
                     border: solid 1px $main-black;
+                    -webkit-transition: all 0.5s;
+                    -o-transition: all 0.5s;
                     transition: all 0.5s;
                     color: #000;
                     font-weight: 600;
                     z-index: 0;
                     &::before {
-                        transform: scaleX(1);
-                        transform-origin: left;
+                        -webkit-transform: scaleX(1);
+                            -ms-transform: scaleX(1);
+                                transform: scaleX(1);
+                        -webkit-transform-origin: left;
+                            -ms-transform-origin: left;
+                                transform-origin: left;
                     }
                 }
                 &::before {
@@ -784,10 +973,20 @@ body.nav-open header .drawer {
                     background: #fff;
                     color: $main-black;
                     border-radius: 50px 50px 50px 50px;
-                    transform: scaleX(0);
-                    transform-origin: right;
+                    -webkit-transform: scaleX(0);
+                        -ms-transform: scaleX(0);
+                            transform: scaleX(0);
+                    -webkit-transform-origin: right;
+                        -ms-transform-origin: right;
+                            transform-origin: right;
+                    -webkit-transition: all .25s ease-in-out;
+                    -o-transition: all .25s ease-in-out;
                     transition: all .25s ease-in-out;
+                    -webkit-transition-property: -webkit-transform;
+                    transition-property: -webkit-transform;
+                    -o-transition-property: transform;
                     transition-property: transform;
+                    transition-property: transform, -webkit-transform;
                     z-index: -1;
                 }
             }
@@ -811,6 +1010,7 @@ body.nav-open header .drawer {
             }
         }
         &__ttl {
+            width: 100%;
             .ttl {
                 width: 35%;
                 color: $main-black;
@@ -819,6 +1019,7 @@ body.nav-open header .drawer {
                 }
                 @include mq(sp_1) {
                     width: 100%;
+                    padding: 4rem 0 4rem 0;
                 }
             }
             p {
@@ -829,11 +1030,12 @@ body.nav-open header .drawer {
             width: 100%;
             height: 100%;
             &__table  {
-                width: 90%;
+                width: 80%;
                 height: 100%;
-                margin: 0 5% 2% 5%;
+                margin: 0 auto;
                 @include mq(pc_max) {
                     margin: 0 5% 2% 5%;
+                    width: 90%;
                 }
                 @include mq(tab) {
                     width: 95%;
@@ -842,6 +1044,7 @@ body.nav-open header .drawer {
                 @include mq(sp_1) {
                     width: 95%;
                     overflow-x: scroll;
+                    overflow-y: hidden;
                 }
                 table {
                     margin-bottom: 5%; 
@@ -849,26 +1052,33 @@ body.nav-open header .drawer {
                     background-color: rgba(0, 0, 0, 0.1);
                     @include mq(sp_1) {
                         width: 200%;
-                        margin-bottom: 15%;
+                        margin-top: 5%;
+                        margin-bottom: 5%;
                     }
                 }
                 table .first-head {
                     width: 20%;
-                    transform: translateY(25%);
+                    -webkit-transform: translateY(25%);
+                        -ms-transform: translateY(25%);
+                            transform: translateY(25%);
                     border: solid 1px #000;
                 }
                 table .second,
                 table .third {
                     @include mq(tab) {
-                        transform: translateY(25%);
+                        -webkit-transform: translateY(25%);
+                            -ms-transform: translateY(25%);
+                                transform: translateY(25%);
                     }
                     @include mq(sp_1) {
-                        transform: translateY(15%);
+                        -webkit-transform: translateY(15%);
+                            -ms-transform: translateY(15%);
+                                transform: translateY(15%);
                     }
                 }
                 table .head {
-                    width: 25%;
-                    padding: 1.5rem 0;
+                    width: 25%; 
+                    padding: 1rem 0;
                     border: solid 1px #000;
                     font-size: 1.2rem;
                     @include mq(sp_1) {
@@ -878,7 +1088,7 @@ body.nav-open header .drawer {
                 }
                 table .data {
                     width: 25%;
-                    padding: 1.5rem 0;
+                    padding: 1rem 0; 
                     border: solid 1px #000;
                     text-align: center;
                     font-size: 1.2rem;
@@ -896,17 +1106,21 @@ body.nav-open header .drawer {
             height: 100%;
             text-align: center;
             z-index: 10;
-            padding: 0 0 10rem 0; 
+            padding: 1rem 0 4rem 0; 
             @include mq(tab) {
-                padding: 0 0 8rem 0; 
+                padding: 2rem 0 4rem 0; 
             }
             @include mq(sp_1) {
-                padding: 0 0 6rem 0; 
+                padding: 3rem 0 4rem 0; 
             }
             .btn {
                 position: relative;
+                display: -webkit-box;
+                display: -ms-flexbox;
                 display: flex;
-                justify-content: center;
+                -webkit-box-pack: center;
+                    -ms-flex-pack: center;
+                        justify-content: center;
                 width: 14rem;
                 height: 2rem;
                 margin: 0 auto;
@@ -914,6 +1128,8 @@ body.nav-open header .drawer {
                 border-radius: 50px 50px 50px 50px;
                 background-color: $main-black;
                 color: #fff;
+                -webkit-transition: .25s ease-in-out;
+                -o-transition: .25s ease-in-out;
                 transition: .25s ease-in-out;
                 @include mq(sp_1) {
                     width: 10rem;
@@ -922,13 +1138,19 @@ body.nav-open header .drawer {
                 } 
                 &:hover {
                     border: solid 1px $main-black;
+                    -webkit-transition: all 0.5s;
+                    -o-transition: all 0.5s;
                     transition: all 0.5s;
                     color: #000;
                     font-weight: 600;
                     z-index: 0;
                     &::before {
-                        transform: scaleX(1);
-                        transform-origin: left;
+                        -webkit-transform: scaleX(1);
+                            -ms-transform: scaleX(1);
+                                transform: scaleX(1);
+                        -webkit-transform-origin: left;
+                            -ms-transform-origin: left;
+                                transform-origin: left;
                     }
                 }
                 &::before {
@@ -944,10 +1166,20 @@ body.nav-open header .drawer {
                     background: #fff;
                     color: $main-black;
                     border-radius: 50px 50px 50px 50px;
-                    transform: scaleX(0);
-                    transform-origin: right;
+                    -webkit-transform: scaleX(0);
+                        -ms-transform: scaleX(0);
+                            transform: scaleX(0);
+                    -webkit-transform-origin: right;
+                        -ms-transform-origin: right;
+                            transform-origin: right;
+                    -webkit-transition: all .25s ease-in-out;
+                    -o-transition: all .25s ease-in-out;
                     transition: all .25s ease-in-out;
+                    -webkit-transition-property: -webkit-transform;
+                    transition-property: -webkit-transform;
+                    -o-transition-property: transform;
                     transition-property: transform;
+                    transition-property: transform, -webkit-transform;
                     z-index: -1;
                 }
             }
@@ -960,9 +1192,6 @@ body.nav-open header .drawer {
         width: 100%;
         height: 100%;
         background-color: rgba(7, 17, 37, 0.9);
-        @include mq(tab) {
-            padding-bottom: unset;
-        }
         .__bg-text {
             width: 100%;
             background-image: url("../image/txt-NEWS-grey.png");
@@ -971,22 +1200,25 @@ body.nav-open header .drawer {
             background-size: 25rem;
             z-index: 100;
             @include mq(tab) {
-                background-position: top 35% left 18%;
+                background-position: top 35% left 5%;
+                background-size: 20rem;
+            }
+            @include mq(sp_1) {
+                background-position: top 30% left 5%;
                 background-size: 15rem;
             }
         }
         &__ttl {
+            width: 100%;
             .ttl {
                 width: 35%;
                 color: #fff;
                 @include mq(pc_max) {
                     width: 45%;
                 }
-                @include mq(tab) {
-                    width: 55%;
-                }
-                @include mq(tab) {
+                @include mq(sp_1) {
                     width: 100%;
+                    padding: 4rem 0 4rem 0;
                 }
             }
             p {
@@ -996,8 +1228,12 @@ body.nav-open header .drawer {
         &__con {
             width: 100%;
             &__box {
+                display: -webkit-box;
+                display: -ms-flexbox;
                 display: flex;
-                justify-content: center;
+                -webkit-box-pack: center;
+                    -ms-flex-pack: center;
+                        justify-content: center;
                 margin: 0 auto;
                 margin-bottom: 1rem;
                 color: #fff;
@@ -1009,6 +1245,9 @@ body.nav-open header .drawer {
                 @include mq(sp_1)  {
                     display: block;
                     width: 100%;
+                }
+                &:hover {
+                    opacity: 0.7;
                 }
                 a {
                     color: #fff;
@@ -1078,11 +1317,18 @@ body.nav-open header .drawer {
         &__btn {
             width: 100%;
             text-align: center;
-            padding: 4rem 0 8rem 0;
+            padding: 4rem 0 4rem 0;
+            @include mq(sp_1) {
+                padding: 4rem 0 4rem 0;
+            }
             .btn {
                 position: relative;
+                display: -webkit-box;
+                display: -ms-flexbox;
                 display: flex;
-                justify-content: center;
+                -webkit-box-pack: center;
+                    -ms-flex-pack: center;
+                        justify-content: center;
                 width: 14rem;
                 height: 2rem;
                 border: solid 1px #fff;
@@ -1091,6 +1337,8 @@ body.nav-open header .drawer {
                 border-radius: 50px 50px 50px 50px;
                 color: #fff;
                 z-index: 10;
+                -webkit-transition: .25s ease-in-out;
+                -o-transition: .25s ease-in-out;
                 transition: .25s ease-in-out;
                 @include mq(sp_1) {
                     width: 10rem;
@@ -1099,12 +1347,18 @@ body.nav-open header .drawer {
                 } 
                 &:hover {
                     border: none;
+                    -webkit-transition: all 0.5s;
+                    -o-transition: all 0.5s;
                     transition: all 0.5s;
                     color: #000;
                     font-weight: 600;
                     &::before {
-                        transform: scaleX(1);
-                        transform-origin: left;
+                        -webkit-transform: scaleX(1);
+                            -ms-transform: scaleX(1);
+                                transform: scaleX(1);
+                        -webkit-transform-origin: left;
+                            -ms-transform-origin: left;
+                                transform-origin: left;
                     }
                 }
                 &::before {
@@ -1119,10 +1373,20 @@ body.nav-open header .drawer {
                     height: 100%;
                     background: #fff;
                     border-radius: 50px 50px 50px 50px;
-                    transform: scaleX(0);
-                    transform-origin: right;
+                    -webkit-transform: scaleX(0);
+                        -ms-transform: scaleX(0);
+                            transform: scaleX(0);
+                    -webkit-transform-origin: right;
+                        -ms-transform-origin: right;
+                            transform-origin: right;
+                    -webkit-transition: all .25s ease-in-out;
+                    -o-transition: all .25s ease-in-out;
                     transition: all .25s ease-in-out;
+                    -webkit-transition-property: -webkit-transform;
+                    transition-property: -webkit-transform;
+                    -o-transition-property: transform;
                     transition-property: transform;
+                    transition-property: transform, -webkit-transform;
                     z-index: -1;
                 }
             }
@@ -1135,8 +1399,12 @@ body.nav-open header .drawer {
         width: 100%;
         height: 100%;
         &__top {
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
-            justify-content: space-between;
+            -webkit-box-pack: justify;
+                -ms-flex-pack: justify;
+                    justify-content: space-between;
             width: 50%;
             margin: 0 auto;
             margin-top: 2rem;
@@ -1151,19 +1419,26 @@ body.nav-open header .drawer {
                 width: 95%;
             }
             &__logo {
-                width: 25%;
+                width: 25%; //25%
                 @include mq(sp_1) {
                     width: 100%;
                 }
                 img {
                     width: 100%;
-                    object-fit: cover;
+                    -o-object-fit: cover;
+                       object-fit: cover;
                 }
             }
             &__icon {
+                display: -webkit-box;
+                display: -ms-flexbox;
                 display: flex;
-                justify-content: flex-end;
-                align-items: center;
+                -webkit-box-pack: end;
+                    -ms-flex-pack: end;
+                        justify-content: flex-end;
+                -webkit-box-align: center;
+                    -ms-flex-align: center;
+                        align-items: center;
                 margin-right: 2rem;
                 .tw {
                     width: 8%;
@@ -1187,8 +1462,12 @@ body.nav-open header .drawer {
             }
         }
         &__con {
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
-            justify-content: center;
+            -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                    justify-content: center;
             width: 50%;
             height: 100%;
             margin: 0 auto;
@@ -1201,7 +1480,9 @@ body.nav-open header .drawer {
             }
             @include mq(sp_1) {
                 display: block;
-                justify-content: none;
+                -webkit-box-pack: none;
+                    -ms-flex-pack: none;
+                        justify-content: none;
                 width: 90%;
                 font-size: 0.8rem; 
             }
@@ -1219,29 +1500,39 @@ body.nav-open header .drawer {
             }
             &__right {
                 width: 70%;
+                width: 100%;
                 height: 100%;
                 margin-top: 2rem;
                 @include mq(sp_1) {
                     width: 100%;
                 }
                 &__nav {
+                    display: -webkit-box;
+                    display: -ms-flexbox;
                     display: flex;
-                    justify-content: space-between;
+                    -webkit-box-pack: justify;
+                        -ms-flex-pack: justify;
+                            justify-content: space-between;
+                    -ms-flex-wrap: wrap;
+                        flex-wrap: wrap;
                     @include mq(sp_1) {
                         width: 100%;
                     }
                     &__item p {
                         padding-bottom: 1rem;
                         width: 100%;
+                        display: block;
                     }
                 }
             }
         }
-        small {
-            display: block;
-            font-size: 0.8rem;
-            text-align: center;
-        }
+    }
+    small {
+        width: 100%;
+        display: block;
+        font-size: 0.8rem;
+        text-align: center;
+        margin: 0 auto;
     }
 }
 
@@ -1302,8 +1593,12 @@ body.nav-open header .drawer {
                 }
             }
             &__img {
+                display: -webkit-box;
+                display: -ms-flexbox;
                 display: flex;
-                justify-content: flex-end;
+                -webkit-box-pack: end;
+                    -ms-flex-pack: end;
+                        justify-content: flex-end;
                 width: 100%;
                 height: 25rem;
                 margin-top: 6rem;
@@ -1323,7 +1618,8 @@ body.nav-open header .drawer {
                 img {
                     width: 92%;
                     height: 100%;
-                    object-fit: cover;
+                    -o-object-fit: cover;
+                       object-fit: cover;
                     aspect-ratio: 1 / 2;
                 }
             }
@@ -1335,6 +1631,8 @@ body.nav-open header .drawer {
     &-wrapper {
         width: 90%;
         height: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
         margin: 0 auto;
         margin-bottom: 10rem;
@@ -1358,6 +1656,7 @@ body.nav-open header .drawer {
         }
         &__right {
             width: 60%;
+            height: 100%;
             text-align: center;
             @include mq(pc_max) {
                 width: 80%;
@@ -1383,13 +1682,12 @@ body.nav-open header .drawer {
                 }
             }
             &__txt {
-                width: 70%;
-                padding: 1.5rem 0 0 1rem; 
+                width: 80%;
+                padding: 1.5rem 0 0 2rem; 
                 margin: 0 auto;
                 text-align: left;
                 @include mq(pc_max) {
-                    width: 100%;
-                    padding: 1.5rem 0 0 6.5rem; 
+                    padding: 1.5rem 0 0 5rem; 
                 }
                 @include mq(tab) {
                     width: 85%;
@@ -1397,7 +1695,9 @@ body.nav-open header .drawer {
                 }
                 @include mq(sp_1) {
                     width: 90%;
-                    padding: 1.5rem 0 0 0 ; 
+                }
+                p {
+                    width: 100%;
                 }
             }
         }
@@ -1408,6 +1708,8 @@ body.nav-open header .drawer {
     &-wrapper {
         width: 90%;
         height: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
         margin: 0 auto;
         margin-bottom: 5rem;
@@ -1439,12 +1741,16 @@ body.nav-open header .drawer {
             }
             &__con {
                 width: 80%;
+                display: -webkit-box;
+                display: -ms-flexbox;
                 display: flex;
                 margin: 0 auto;
                 border-bottom: solid 1px rgba(0, 0, 0, 0.2);
                 margin: 1rem 0 2rem 7rem;
                 @include mq(tab) {
-                    justify-content: center;
+                    -webkit-box-pack: center;
+                        -ms-flex-pack: center;
+                            justify-content: center;
                     margin: 1rem 3rem 2rem 5rem;
                 }
                 @include mq(sp_1) {
@@ -1473,7 +1779,23 @@ body.nav-open header .drawer {
                         width: 100%;
                         font-size: 1rem;
                         text-align: center;
-                        transform: translateY(60%);
+                        -webkit-transform: translateY(60%);
+                            -ms-transform: translateY(60%);
+                                transform: translateY(60%);
+                    }
+                }
+                .ad {
+                    @include mq(sp_1) {
+                        -webkit-transform: translateY(30%);
+                            -ms-transform: translateY(30%);
+                                transform: translateY(30%);
+                    }
+                }
+                .bm {
+                    @include mq(sp_1) {
+                        -webkit-transform: translateY(30%);
+                            -ms-transform: translateY(30%);
+                                transform: translateY(30%);
                     }
                 }
             }
@@ -1521,8 +1843,12 @@ body.nav-open header .drawer {
                 }
             }
             &__img {
+                display: -webkit-box;
+                display: -ms-flexbox;
                 display: flex;
-                justify-content: flex-end;
+                -webkit-box-pack: end;
+                    -ms-flex-pack: end;
+                        justify-content: flex-end;
                 width: 100%;
                 height: 25rem;
                 margin-top: 6rem;
@@ -1542,7 +1868,8 @@ body.nav-open header .drawer {
                 img {
                     width: 92%;
                     height: 100%;
-                    object-fit: cover;
+                    -o-object-fit: cover;
+                       object-fit: cover;
                     aspect-ratio: 1 / 2;
                 }
             }
@@ -1572,27 +1899,44 @@ body.nav-open header .drawer {
             }
         }
         &__con {
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
-            justify-content: space-evenly;
-            align-items: center;
-            flex-wrap: wrap;
+            -webkit-box-pack: space-evenly;
+                -ms-flex-pack: space-evenly;
+                    justify-content: space-evenly;
+            -webkit-box-align: center;
+                -ms-flex-align: center;
+                    align-items: center;
+            -ms-flex-wrap: wrap;
+                flex-wrap: wrap;
             width: 100%;
             height: 100%;
             &__box {
                 position: relative;
                 width: 35%;
-                height: 50vh;
+                height: 40vh;
                 margin-top: 5rem;
                 z-index: 50;
-                box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5);
+                -webkit-box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5);
+                        box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5);
                 @include mq(pc_max) {
-                    width: 40%;
+                    width: 40%; 
+                    height: 25em;
                 }
                 @include mq(tab) {
                     width: 70%;
+                    height: 30rem;
                 }
                 @include mq(sp_1) {
                     width: 90%;
+                    height: 25rem;
+                    margin-left: 10%;
+                    margin-right: 5%;
+                }
+                @include mq(sp_2) {
+                    width: 90%;
+                    height: 28rem;
                     margin-left: 10%;
                     margin-right: 5%;
                 }
@@ -1614,64 +1958,145 @@ body.nav-open header .drawer {
                         margin: 0 auto;
                     }
                     &__ttl {
+                        display: -webkit-box;
+                        display: -ms-flexbox;
                         display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        padding: 2.5rem;
+                        -webkit-box-pack: center;
+                            -ms-flex-pack: center;
+                                justify-content: center;
+                        margin-bottom: 2rem;
+                        width: 100%;
+                        @include mq(pc_max) {
+                        }
+                        @include mq(tab) {
+                            padding: 2rem 0 0 0;
+                        }
                         @include mq(sp_1) {
-                            margin: 0 auto;
-                            padding: 2.5rem 0;
+                            padding: 0rem 0 0 1rem;
+                        }
+                        @include mq(sp_2) {
+                            padding: 0 1rem 0 0;
                         }
                         h3 {
-                            font-size: 1.5rem;
+                            font-size: 1.4rem;
+                            width: 55%;
+                            padding: 3rem 0 0 0;
+                            @include mq(pc_max) {
+                                font-size: 1.4rem;
+                                width: 70%;
+                            }
+                            @include mq(tab) {
+                                font-size: 1.3rem;
+                                width: 50%;
+                            }
+                            @include mq(sp_1) {
+                                font-size: 1.3rem;
+                                width: 60%;
+                                padding: 2.5rem 0 0 0;
+                            }
+                            @include mq(sp_2) {
+                                font-size: 1.3rem;
+                                width: 80%;
+                            }
+                        }
+                        .web {
+                            @include mq(pc_max) {
+                                display: inline-block;
+                                width: 60%;
+                            }
+                            @include mq(tab) {
+                                display: inline-block;
+                                width: 100%;
+                            }
                             @include mq(sp_1) {
                                 display: inline-block;
-                                font-size: 1.4rem;
-                                width: 80%;
-                                text-align: center;
+                                width: 100%;
+                            }
+                            @include mq(sp_2) {
+                                display: inline-block;
+                                width: 100%;
                             }
                         }
                         .sns,
                         .seo,
                         .meo {
-                            width: 50%;
+                            width: 40%;
+                            @include mq(pc_max) {
+                                display: inline-block;
+                                width: 40%;
+                            }
+                            @include mq(tab) {
+                                width: 40%;
+                            }
+                            @include mq(sp_1) {
+                                width: 65%;
+                            }
+                            @include mq(sp_2) {
+                                width: 40%;
+                            }
                         }
                         .pc,
                         .support {
-                            width: 70%; 
+                            @include mq(pc_max) {
+                                display: inline-block;
+                                width: 50%;
+                                padding: 2.5rem 0rem 0 0;   
+                            }
+                            @include mq(tab) {
+                                width: 50%;
+                                padding: 2.5rem 0 0 0;
+                            }
+                            @include mq(sp_1) {
+                                width: 70%; 
+                            }
                         }
                         img {
                             width: 10%;
                             height: 10%;
-                            padding-right: 0.5rem;
+                            padding: 2.5rem 1rem 0 2rem;
+                            @include mq(pc_max) {
+                                padding: 2.5rem 1rem 0 0;
+                            }
+                            @include mq(tab) {
+                                padding: 2.5rem 1rem 0 4rem;
+                            }
                             @include mq(sp_1) {
-                                padding-right: unset;
-                                display: inline;
+                                padding: 2.5rem 1rem 0 2rem;
+                            }
+                            @include mq(sp_2) {
+                                padding: 3rem 1rem 0 1rem;
                             }
                         }
                     }
                     &__txt {
+                        width: 80%;
                         .text {
-                            width: 80%;
+                            width: 100%;
                             height: 100%;
                             text-align: left;
                             font-size: 1rem;
-                            transform: translate(15%);
-                            padding: 1rem 0;
+                            -webkit-transform: translate(15%);
+                                -ms-transform: translate(15%);
+                                    transform: translate(15%);
                             font-weight: 600;
                             position: relative;
                             @include mq(tab) {
-                                font-size: 1.1rem;
+                                font-size: 1rem;
                             }
                             @include mq(sp_1) {
                                 font-size: 1rem;
-                                width: 86%;
+                                width: 100%;
+                                margin: 0 auto;
+                            }
+                            @include mq(sp_1) {
+                                font-size: 1rem;
+                                width: 80%;
                             }
                             &::before {
                                 display: inline-block;
                                 position: absolute;
                                 content: "";
-                                top: 28px;
+                                top: 12px;
                                 left: -30px;
                                 right: 0;
                                 width: 15px;
@@ -1725,8 +2150,12 @@ body.nav-open header .drawer {
                 }
             }
             &__img {
+                display: -webkit-box;
+                display: -ms-flexbox;
                 display: flex;
-                justify-content: flex-end;
+                -webkit-box-pack: end;
+                    -ms-flex-pack: end;
+                        justify-content: flex-end;
                 width: 100%;
                 height: 25rem;
                 margin-top: 6rem;
@@ -1746,7 +2175,8 @@ body.nav-open header .drawer {
                 img {
                     width: 92%;
                     height: 100%;
-                    object-fit: cover;
+                    -o-object-fit: cover;
+                       object-fit: cover;
                     aspect-ratio: 1 / 2;
                 }
             }
@@ -1770,22 +2200,30 @@ body.nav-open header .drawer {
                 width: 40%;
             }
             @include mq(sp_1) {
-                width: 50%;
+                width: 60%;
                 margin: 0 auto;
                 margin-bottom: 4rem;
             }
         }
         &__con {
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
-            justify-content: space-evenly;
-            flex-wrap: wrap;
+            -webkit-box-pack: space-evenly;
+                -ms-flex-pack: space-evenly;
+                    justify-content: space-evenly;
+            -ms-flex-wrap: wrap;
+                flex-wrap: wrap;
             width: 100%;
             background-color: $main-black;
             padding-top: 6rem;
             @include mq(tab) {
                 display: block;
-                justify-content: none;
-                flex-wrap: no-wrap;
+                -webkit-box-pack: none;
+                    -ms-flex-pack: none;
+                        justify-content: none;
+                -ms-flex-wrap: no-wrap;
+                    flex-wrap: no-wrap;
             }
             &__box {
                 width: 30%;
@@ -1798,16 +2236,29 @@ body.nav-open header .drawer {
                     img {
                         width: 100%;
                         height: 30vh;
-                        object-fit: cover;
+                        -o-object-fit: cover;
+                           object-fit: cover;
+                        aspect-ratio: 1 / 2;
+                        -webkit-transition: all 0.5s ease-in-out;
+                        -o-transition: all 0.5s ease-in-out;
+                        transition: all 0.5s ease-in-out;
+                        @include mq(pc_max) {
+                            height: 16vh;
+                        }
                         @include mq(tab) {
                             height: 45vh;
                         }
                         @include mq(sp_1) {
                             height: 40vh;
                         }
-                    }
-                    &:hover {
-                        transform: scale(1.1);
+                        &:hover {
+                            -webkit-transform: scale(1.1);
+                                -ms-transform: scale(1.1);
+                                    transform: scale(1.1);
+                            -webkit-transition: all 0.5s ease-in-out;
+                            -o-transition: all 0.5s ease-in-out;
+                            transition: all 0.5s ease-in-out;
+                        }
                     }
                 }
                 &__txt {
@@ -1834,37 +2285,231 @@ body.nav-open header .drawer {
     }
 }
 
-// pagination
-nav {
-    display: flex;
-    justify-content: center;
-    width: 100%;
+//works Detail Page
+.works-detail {
+    &-wrapper {
+        width: 100%;
+        height: 100%;
+        padding: 8rem 0; 
+        .__top-bg-text {
+            width: 100%;
+            background-image: url("../image/txt-WORKS.png");
+            background-repeat: no-repeat;
+            background-size: 450px;
+            background-position: top 6% left 10%;
+            @include mq(sp_1) {
+                background-size: 350px;
+                background-position: top 2% left 10%;
+            }
+        }
+        &__top {
+            width: 100%;
+            height: 100%;
+            .top-ttl {
+                width: 40%;
+                @include mq(pc_max) {
+                    width: 50%;
+                }
+                @include mq(tab) {
+                    width: 55%;
+                }
+                @include mq(sp_1) {
+                    width: 100%;
+                }
+            }
+            &__img {
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-pack: end;
+                    -ms-flex-pack: end;
+                        justify-content: flex-end;
+                width: 100%;
+                height: 25rem;
+                margin-top: 6rem;
+                position: relative;
+                &::before {
+                    position: absolute;
+                    content: "";
+                    top: -23%;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    width: 92%;
+                    height: 100%;
+                    background-color: $main-black;
+                    z-index: -1;
+                }
+                img {
+                    width: 92%;
+                    height: 100%;
+                    -o-object-fit: cover;
+                       object-fit: cover;
+                    aspect-ratio: 1 / 2;
+                }
+            }
+        }
+    }
 }
-        
-.pagination {
-    font-size: 1.2rem;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    @include mq(sp_1) {
-        font-size: 1rem;
-    }
-    .show {
-        display: none;
+
+.works-page {
+    &-wrapper {
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+        margin-bottom: 5rem;
         @include mq(sp_1) {
-            display: unset;
+            margin-bottom: unset;
         }
-    }
-    li {
-        margin: 0 1rem 5rem 1rem;
-        @include mq(sp_1) {
-            margin: 0 1.2rem 4rem 1.2rem;
+        &__ttl {
+            width: 35%;
+            margin-bottom: 2rem;
+            @include mq(pc_max) {
+                width: 45%;
+            }
+            @include mq(tab) {
+                width: 40%;
+            }
+            @include mq(sp_1) {
+                width: 50%;
+                margin: 0 auto;
+                margin-bottom: 4rem;
+            }
         }
-        a {
-            color: #fff;
-            &:hover {
-                opacity: 0.8;
+        &__con {
+            width: 100%;
+            height: 100%;
+            background-color: $main-black;
+            padding-top: 6rem;
+            @include mq(sp_1) {
+                padding-top: 1rem;
+            }
+            &__box {
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                text-align: center;
+                width: 100%;
+                @include mq(tab) {
+                    display: block;
+                }
+                &__left {
+                    width: 50%;
+                    height: 100%;
+                    margin-top: 5rem;
+                    margin-bottom: 5rem;
+                    @include mq(tab) {
+                        width: 95%;
+                    }
+                    @include mq(sp_1) {
+                        width: 95%;
+                    }
+                    &__img {
+                        width: 100%;
+                        height: 100%;
+                        @include mq(sp_1) {
+                            width: 60vh;
+                        }
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            padding: 0 2rem;
+                            -o-object-fit: cover;
+                               object-fit: cover;
+                            aspect-ratio: 2 / 1;
+                            @include mq(sp_1) {
+                                width: 100%;
+                                padding: 0 0 0 1.5rem;
+                            }
+                        }
+                    }
+                }
+                &__right {
+                    width: 50%;
+                    @include mq(tab) {
+                        width: 100%;
+                        margin: 0 auto;
+                    }
+                    &__con {
+                        width: 100%;
+                        @include mq(tab) {
+                            margin-bottom: 6rem;
+                        }
+                        @include mq(sp_1) {
+                            margin-bottom: unset;
+                        }
+                        &__ttl {
+                            width: 80%;
+                            @include mq(tab) {
+                                width: 100%;
+                            }
+                            @include mq(sp_1) {
+                                width: 90%;
+                                margin: 0 auto;
+                            }
+                            h3 {
+                                width: 100%;
+                                font-size: 1.8rem;
+                                color: #fff;
+                                @include mq(sp_1) {
+                                    font-size: 1.5rem;
+                                }
+                                @include mq(sp_2) {
+                                    font-size: 1rem;
+                                }
+                            }
+                            a {
+                                font-size: 1.2rem;
+                                color: #fff;
+                                @include mq(tab) {
+                                    font-size: 1rem;
+                                }
+                            }
+                        }
+                        &__txt {
+                            width: 80%;
+                            margin: 0 auto;
+                            @include mq(sp_1) {
+                                width: 90%;
+                            }
+                            p {
+                                font-size: 1.2rem;
+                                color: #fff;
+                                text-align: left;
+                                margin-top: 2rem;
+                                margin-bottom: 4rem;
+                            }
+                        }
+                    }
+                }    
+            }
+        }
+        &__btn {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: space-evenly;
+                -ms-flex-pack: space-evenly;
+                    justify-content: center;
+            -webkit-box-align: center;
+                -ms-flex-align: center;
+                    align-items: center;
+            width: 100%;
+            margin: 0 auto;
+            margin-top: 2rem;
+            @include mq(tab) {
+                margin-bottom: 6rem;
+            }
+            @include mq(sp_1) {
+                margin-bottom: 4rem;
+                width: 100%;
+                font-size: 1.1rem;
+            }
+            &__blog {
+                padding: 0 10rem;
+                @include mq(sp_1) {
+                    padding: 0 4rem;
+                }
             }
         }
     }
@@ -1899,8 +2544,12 @@ nav {
                 }
             }
             &__img {
+                display: -webkit-box;
+                display: -ms-flexbox;
                 display: flex;
-                justify-content: flex-end;
+                -webkit-box-pack: end;
+                    -ms-flex-pack: end;
+                        justify-content: flex-end;
                 width: 100%;
                 height: 25rem;
                 margin-top: 6rem;
@@ -1920,7 +2569,8 @@ nav {
                 img {
                     width: 92%;
                     height: 100%;
-                    object-fit: cover;
+                    -o-object-fit: cover;
+                       object-fit: cover;
                     aspect-ratio: 1 / 2;
                 }
             }
@@ -1953,15 +2603,17 @@ nav {
             }
         }
         &__con {
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
+            -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                    justify-content: center;
+            -ms-flex-wrap: wrap;
+                flex-wrap: wrap;
             width: 100%;
             height: 100%;
             margin-top: 10%;
-            // @include mq(sp_1) {
-            //     margin-top: 0;
-            // }
             &__ttl {
                 font-size: 2.3rem;
                 color: $main-black;
@@ -2003,11 +2655,15 @@ nav {
                     background-color: rgba(0, 0, 0, 0.1);
                     @include mq(sp_1) {
                         width: 200%;
+                        margin-top: 5%;
+                        margin-bottom: 5%;
                     }
                 }
                 table .first-head {
                     width: 15%;
-                    transform: translateY(30%);
+                    -webkit-transform: translateY(30%);
+                        -ms-transform: translateY(30%);
+                            transform: translateY(30%);
                     border: solid 1px #000;
                     @include mq(sp_1) {
                         font-size: 0.9rem;
@@ -2016,10 +2672,14 @@ nav {
                 table .second,
                 table .third {
                     @include mq(tab) {
-                        transform: translateY(15%);
+                        -webkit-transform: translateY(15%);
+                            -ms-transform: translateY(15%);
+                                transform: translateY(15%);
                     }
                     @include mq(sp_1) {
-                        transform: translateY(20%);
+                        -webkit-transform: translateY(20%);
+                            -ms-transform: translateY(20%);
+                                transform: translateY(20%);
                         font-size: 0.9rem;
                     }
                 }
@@ -2104,8 +2764,12 @@ nav {
                 }
             }
             &__img {
+                display: -webkit-box;
+                display: -ms-flexbox;
                 display: flex;
-                justify-content: flex-end;
+                -webkit-box-pack: end;
+                    -ms-flex-pack: end;
+                        justify-content: flex-end;
                 width: 100%;
                 height: 25rem;
                 margin-top: 6rem;
@@ -2125,7 +2789,8 @@ nav {
                 img {
                     width: 92%;
                     height: 100%;
-                    object-fit: cover;
+                    -o-object-fit: cover;
+                       object-fit: cover;
                     aspect-ratio: 1 / 2;
                 }
             }
@@ -2154,11 +2819,14 @@ nav {
             width: 100%;
             height: 100%;
             margin-top: 5rem;
-            padding-top: 2rem;
             background-color: rgba(7, 17, 37, 0.9);
             &__box {
+                display: -webkit-box;
+                display: -ms-flexbox;
                 display: flex;
-                justify-content: center;
+                -webkit-box-pack: center;
+                    -ms-flex-pack: center;
+                        justify-content: center;
                 margin: 0 auto;
                 padding-top: 4rem;
                 color: #fff;
@@ -2172,6 +2840,9 @@ nav {
                 }
                 @include mq(sp_1) {
                     display: block;
+                }
+                &:hover {
+                    opacity: 0.7;
                 }
                 a {
                     color: #fff;
@@ -2253,10 +2924,22 @@ nav {
             }
         }
     }
-    .pagination {
-        margin-top: 5rem;
+}
+
+//pagination
+.pagination {
+    width: 100%;
+    text-align: center;
+    margin-top: 3rem;
+    color: #fff;
+    font-size: 1.5rem;
+    padding-bottom: 6rem;
+    .page-numbers {
+        color: #fff;
+        padding: 0 1rem;
     }
 }
+
 
 // News articlePage
 .news-detail {
@@ -2279,8 +2962,12 @@ nav {
             width: 100%;
             height: 100%;
             &__img {
+                display: -webkit-box;
+                display: -ms-flexbox;
                 display: flex;
-                justify-content: flex-end;
+                -webkit-box-pack: end;
+                    -ms-flex-pack: end;
+                        justify-content: flex-end;
                 width: 100%;
                 height: 25rem;
                 margin-top: 6rem;
@@ -2300,7 +2987,8 @@ nav {
                 img {
                     width: 92%;
                     height: 100%;
-                    object-fit: cover;
+                    -o-object-fit: cover;
+                       object-fit: cover;
                     aspect-ratio: 1 / 2;
                 }
             }
@@ -2330,8 +3018,12 @@ nav {
                     width: 90%;
                 }
                 &__box1 {
+                    display: -webkit-box;
+                    display: -ms-flexbox;
                     display: flex;
-                    align-items: center;
+                    -webkit-box-align: center;
+                        -ms-flex-align: center;
+                            align-items: center;
                     padding: 1.5rem 0;
                     .notice {
                         height: 10%;
@@ -2389,9 +3081,15 @@ nav {
                 }
             }
             &__btn {
+                display: -webkit-box;
+                display: -ms-flexbox;
                 display: flex;
-                justify-content: space-evenly;
-                align-items: center;
+                -webkit-box-pack: space-evenly;
+                    -ms-flex-pack: space-evenly;
+                        justify-content: space-evenly;
+                -webkit-box-align: center;
+                    -ms-flex-align: center;
+                        align-items: center;
                 width: 50%;
                 margin: 0 auto;
                 margin-top: 2rem;
@@ -2451,8 +3149,12 @@ nav {
                 }
             }
             &__img {
+                display: -webkit-box;
+                display: -ms-flexbox;
                 display: flex;
-                justify-content: flex-end;
+                -webkit-box-pack: end;
+                    -ms-flex-pack: end;
+                        justify-content: flex-end;
                 width: 100%;
                 height: 25rem;
                 margin-top: 6rem;
@@ -2472,7 +3174,8 @@ nav {
                 img {
                     width: 92%;
                     height: 100%;
-                    object-fit: cover;
+                    -o-object-fit: cover;
+                       object-fit: cover;
                     aspect-ratio: 1 / 2;
                 }
             }
@@ -2490,8 +3193,7 @@ nav {
             margin-bottom: 4rem;
         }
         &__ttl {
-            width: 55%;
-            margin-left: 0 auto;
+            width: 100%;
             @include mq(pc_max) {
                 width: 65%;
             }
@@ -2499,22 +3201,38 @@ nav {
                 width: 100%;
             }
             .h2-ttl {
-                width: 70%;
+                width: 100%;
+                text-align: left;
+                padding-left: 10%;
                 @include mq(sp_1) {
                     width: 100%;
                     font-size: 2rem;
+                    padding-left: 5%;
+                }
+                @include mq(sp_2) {
+                    width: 100%;
+                    font-size: 1.8rem;
+                }
+                p {
+                    padding-left: 5%;
+                    @include mq(sp_1) {
+                        width: 100%;
+                        padding-left: 25%;
+                    }
                 }
             }
             &__txt {
                 width: 100%;
-                margin: 10% 0 5% 45%;
+                text-align: left;
+                margin: 10% 0 5% 25%;
                 @include mq(pc_max) {
                     margin: 10% 0 5% 36%;
                 }
                 @include mq(tab) {
-                    margin: 10% 0 5% 10%;
+                    width: 90%;
+                    margin: 10% 5% 10% 10%;
                 }
-                @include mq(tab) {
+                @include mq(sp_1) {
                     width: 90%;
                     margin: 10% 5% 10% 5%;
                 }
@@ -2531,7 +3249,7 @@ nav {
                 width: 80%;
             }
             @include mq(sp_1) {
-                width: 90%;
+                width: 85%;
             }
             &__form {
                 width: 100%;
@@ -2551,20 +3269,23 @@ nav {
                             font-size: 1.2rem;
                             font-weight: 600;
                         }
-                        span {
-                            display: inline-block;
-                            font-size: 0.6rem;
-                            color: #fff;
-                            width: 55px;
-                            height: 15px;
-                            text-align: center;
-                            transform: translate(20px, -3px);
-                            line-height: 1.6;
-                            border: solid 1px $main-black;
-                            border-radius: 50px 50px 50px 50px;
-                            background-color: $main-black;
-                            margin-bottom: 2%;
-                        }
+                    }
+                    .txt {
+                        display: inline-block;
+                        font-size: 0.6rem;
+                        color: #fff;
+                        width: 55px;
+                        height: 15px;
+                        text-align: center;
+                        -webkit-transform: translate(20px, -3px);
+                            -ms-transform: translate(20px, -3px);
+                                transform: translate(20px, -3px);
+                        line-height: 1.6;
+                        border: solid 1px $main-black;
+                        border-radius: 50px 50px 50px 50px;
+                        background-color: $main-black;
+                        margin-bottom: 2%;
+                        padding: 3px 0 ;
                     }
                     &__input {
                         width: 100%;
@@ -2577,10 +3298,14 @@ nav {
                         height: 20vh;
                         border: solid 1px rgba(0, 0, 0, 50%);
                     }
-                    &__btn {
+                    &.__btn {
+                        margin-top: 4rem;
+                    }
+                    &.__btn p {
                         display: block;
-                        width: 15rem;
-                        height: 4rem;
+                        width: 14rem;
+                        height: 2rem;
+                        padding: 1rem 1rem;
                         line-height: 2.2;
                         background-color: $main-black;
                         color: #fff;
@@ -2589,19 +3314,84 @@ nav {
                         font-weight: normal;
                         margin: 0 auto;
                         border-radius: 50px 50px 50px 50px;
+                        position: relative;
+                        z-index: 10;
+                        -webkit-transition: .25s ease-in-out;
+                        -o-transition: .25s ease-in-out;
+                        transition: .25s ease-in-out;
+                        cursor: pointer;
                         @include mq(sp_1) {
                             width: 10rem;
-                            height: 3rem;
-                            padding: 0.4rem 1.5rem;
-                        }     
+                            height: 1.5rem;
+                            line-height: 2.2;
+                        }
                         &:hover {
                             background-color: #fff;
+                            border: solid 1px $main-black;
+                            -webkit-transition: all 0.5s;
+                            -o-transition: all 0.5s;
+                            transition: all 0.5s;
                             color: #000;
                             font-weight: 600;
-                            border: 1px solid #000;
-                            -webkit-transition: 0.5s ease-in-out;
-                            -o-transition: 0.5s ease-in-out;
-                            transition: 0.5s ease-in-out;
+                            cursor: pointer;
+                            &::before {
+                                -webkit-transform: scaleX(1);
+                                    -ms-transform: scaleX(1);
+                                        transform: scaleX(1);
+                                -webkit-transform-origin: left;
+                                    -ms-transform-origin: left;
+                                        transform-origin: left;
+                            }
+                        }
+                        input {
+                            position: absolute;
+                            content: "";
+                            top: 0;
+                            left: 0;
+                            right: 0;
+                            bottom: 0;
+                            display: block;
+                            color: #fff;
+                            font-size: 1rem;
+                            border-radius: 50px 50px 50px 50px;
+                            width: 100%;
+                            margin: 0 auto;
+                            border: none;
+                            overflow: hidden;
+                            background-color: transparent;
+                            font-weight: 600;
+                            &:hover {
+                                background-color: transparent;
+                                color: $main-black;
+                            }
+                        }
+                        &::before {
+                            position: absolute;
+                            display: block;
+                            content: "";
+                            top: 0;
+                            left: 0;
+                            right: 0;
+                            bottom: 0;
+                            width: 100%;
+                            height: 100%;
+                            background: #fff;
+                            border-radius: 50px 50px 50px 50px;
+                            -webkit-transform: scaleX(0);
+                                -ms-transform: scaleX(0);
+                                    transform: scaleX(0);
+                            -webkit-transform-origin: right;
+                                -ms-transform-origin: right;
+                                    transform-origin: right;
+                            -webkit-transition: all .25s ease-in-out;
+                            -o-transition: all .25s ease-in-out;
+                            transition: all .25s ease-in-out;
+                            -webkit-transition-property: -webkit-transform;
+                            transition-property: -webkit-transform;
+                            -o-transition-property: transform;
+                            transition-property: transform;
+                            transition-property: transform, -webkit-transform;
+                            z-index: -1;
                         }
                     }
                 }
@@ -2619,18 +3409,21 @@ nav {
 
 // animation
 .fadeUp {
-    animation: fadeUpAnime 0.8s forwards;
+    -webkit-animation: fadeUpAnime 0.8s forwards;
+            animation: fadeUpAnime 0.8s forwards;
     opacity: 0;
 }
 
 .fadeLeft {
-    animation: fadeLeftAnime 0.8s forwards;
+    -webkit-animation: fadeLeftAnime 0.8s forwards;
+            animation: fadeLeftAnime 0.8s forwards;
     opacity: 0;
     overflow: hidden;
 }
 
 .fadeRight {
-    animation: fadeRightAnime 0.8s forwards;
+    -webkit-animation: fadeRightAnime 0.8s forwards;
+            animation: fadeRightAnime 0.8s forwards;
     opacity: 0;
     overflow: hidden;
 }
@@ -2641,39 +3434,87 @@ nav {
     opacity: 0;
 }
 
-@keyframes fadeUpAnime {
+@-webkit-keyframes fadeUpAnime {
     from {
         opacity: 0;
-        transform: translateY(100px);
+        -webkit-transform: translateY(100px);
+                transform: translateY(100px);
     }
 
     to {
         opacity: 1;
-        transform: translateY(0);
+        -webkit-transform: translateY(0);
+                transform: translateY(0);
+    }
+}
+
+@keyframes fadeUpAnime {
+    from {
+        opacity: 0;
+        -webkit-transform: translateY(100px);
+                transform: translateY(100px);
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+                transform: translateY(0);
+    }
+}
+
+@-webkit-keyframes fadeLeftAnime {
+    from {
+        opacity: 0;
+        -webkit-transform: translateX(100px);
+                transform: translateX(100px);
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: translateX(0);
+                transform: translateX(0);
     }
 }
 
 @keyframes fadeLeftAnime {
     from {
         opacity: 0;
-        transform: translateX(100px);
+        -webkit-transform: translateX(100px);
+                transform: translateX(100px);
     }
 
     to {
         opacity: 1;
-        transform: translateX(0);
+        -webkit-transform: translateX(0);
+                transform: translateX(0);
+    }
+}
+
+    @-webkit-keyframes fadeRightAnime {
+    from {
+        opacity: 0;
+        -webkit-transform: translateX(-100px);
+                transform: translateX(-100px);
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: translateX(0);
+                transform: translateX(0);
     }
 }
 
     @keyframes fadeRightAnime {
     from {
         opacity: 0;
-        transform: translateX(-100px);
+        -webkit-transform: translateX(-100px);
+                transform: translateX(-100px);
     }
 
     to {
         opacity: 1;
-        transform: translateX(0);
+        -webkit-transform: translateX(0);
+                transform: translateX(0);
     }
 }
 
@@ -2682,9 +3523,17 @@ nav {
     width: 100%;
     height: 100%;
     background: #fff;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
     transition: all 0.3s;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     position: fixed;
     top: 0;
@@ -2694,9 +3543,15 @@ nav {
 
 .pulse-container {
     width: 120px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 .pulse-bubble {
@@ -2707,25 +3562,43 @@ nav {
 }
 
 .pulse-bubble-1 {
-    animation: pulse .4s ease 0s infinite alternate;
+    -webkit-animation: pulse .4s ease 0s infinite alternate;
+            animation: pulse .4s ease 0s infinite alternate;
 }
 
 .pulse-bubble-2 {
-    animation: pulse .4s ease .2s infinite alternate;
+    -webkit-animation: pulse .4s ease .2s infinite alternate;
+            animation: pulse .4s ease .2s infinite alternate;
 }
 
 .pulse-bubble-3 {
-    animation: pulse .4s ease .4s infinite alternate;
+    -webkit-animation: pulse .4s ease .4s infinite alternate;
+            animation: pulse .4s ease .4s infinite alternate;
+}
+
+@-webkit-keyframes pulse {
+    from {
+        opacity: 1;
+        -webkit-transform: scale(1);
+                transform: scale(1);
+}
+    to {
+        opacity: .25;
+        -webkit-transform: scale(.50);
+                transform: scale(.50);
+    }
 }
 
 @keyframes pulse {
     from {
         opacity: 1;
-        transform: scale(1);
+        -webkit-transform: scale(1);
+                transform: scale(1);
 }
     to {
         opacity: .25;
-        transform: scale(.50);
+        -webkit-transform: scale(.50);
+                transform: scale(.50);
     }
 }
 

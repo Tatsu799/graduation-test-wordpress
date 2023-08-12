@@ -1,5 +1,27 @@
 'use strict';
 
+const loadAnime = $('.spinner-box');
+$(window).on('load', function() {
+    loadAnime.delay(500).fadeOut(600);
+});
+
+function stopLoad() {
+    loadAnime.delay(500).fadeOut(600);
+}
+setTimeout('stopLoad()', 1000);
+
+let startPos = 0
+let winScrollTop = 0;
+$(window).on('scroll', function () {
+    winScrollTop = $(this).scrollTop();
+    if (winScrollTop >= startPos) {
+        $('.header').addClass('hide');
+    } else {
+        $('.header').removeClass('hide');
+    }
+    startPos = winScrollTop;
+});
+
 let windowSize = $(window).width();
 $(function () {
     if (windowSize > 769) {
@@ -15,16 +37,6 @@ $(function () {
     }
 });
 
-const loadAnime = $('.spinner-box');
-$(window).on('load', function() {
-    loadAnime.delay(700).fadeOut(1000);
-});
-
-function stopLoad() {
-    loadAnime.delay(10000).fadeOut(1000);
-}
-setTimeout('stopLoad()', 20000);
-
 // slider 
 $(function() {
     $(".slider").slick({
@@ -36,15 +48,23 @@ $(function() {
         nextArrow: '<div class="next"></div>',
         dots: false,
         slidesToShow: 3,
-        slidesToScroll: 1,
+        slidesToScroll: 3,
         responsive: [
             {
                 breakpoint: 769,
                 settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
                 },
             },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                }
+            }
+            
         ],
     });
 
