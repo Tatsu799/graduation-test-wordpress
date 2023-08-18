@@ -1,4 +1,5 @@
 <?php get_header(); ?>
+<body>
     <main>
         <section class="contact" id="contact">
             <div class="contact-wrapper">
@@ -34,4 +35,5 @@
             <div class="bg-footer"></div>
         </section>   
     </main>
+</body>
 <?php get_footer(); ?>

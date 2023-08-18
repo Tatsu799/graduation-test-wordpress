@@ -186,6 +186,31 @@ li {
   list-style: none;
 }
 
+.top-button {
+  color: #fff;
+  background-color: #071125;
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  font-size: 1rem;
+  width: 4rem;
+  height: 4rem;
+  line-height: 4rem;
+  border-radius: 50%;
+  text-align: center;
+  cursor: pointer;
+  opacity: 0;
+  z-index: 9999;
+}
+@media screen and (max-width: 480px) {
+  .top-button {
+    width: 3rem;
+    height: 3rem;
+    line-height: 3rem;
+    font-size: 0.8rem;
+  }
+}
+
 header .drawer {
   visibility: hidden;
 }
@@ -319,7 +344,7 @@ header .drawer {
   }
 }
 .header-wrapper__nav {
-  width: 70%;
+  width: 100%;
 }
 @media screen and (max-width: 480px) {
   .header-wrapper__nav {
@@ -332,13 +357,21 @@ header .drawer {
   display: flex;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
-  justify-content: space-between;
+  justify-content: flex-end;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
   width: 100%;
   font-weight: 600;
   color: #071125;
+}
+.header-wrapper__nav__list__item {
+  margin: 0 0 0 50px;
+}
+@media screen and (max-width: 1024px) {
+  .header-wrapper__nav__list__item {
+    margin: 0 0 0 20px;
+  }
 }
 .header-wrapper__nav__list__item a {
   position: relative;
@@ -367,10 +400,10 @@ header .drawer {
 .header-wrapper__nav__list .__bg {
   background-color: #071125;
   height: 81px;
-  width: 180px;
+  width: 150px;
   display: -webkit-box;
   display: -ms-flexbox;
-  display: flex;
+  display: fixed;
   top: 0;
   left: 0;
   -webkit-box-pack: center;
@@ -380,6 +413,11 @@ header .drawer {
   -ms-flex-align: center;
   align-items: center;
   z-index: 9999;
+}
+@media screen and (max-width: 1024px) {
+  .header-wrapper__nav__list .__bg {
+    width: 130px;
+  }
 }
 @media screen and (max-width: 480px) {
   .header-wrapper__nav__list .__bg {
@@ -419,11 +457,6 @@ header .drawer {
 }
 @media screen and (max-width: 480px) {
   .top .slider1 img {
-    height: 90vh;
-  }
-}
-@media screen and (max-width: 320px) {
-  .top .slider1 img {
     height: 100vh;
   }
 }
@@ -444,11 +477,6 @@ header .drawer {
   }
 }
 @media screen and (max-width: 480px) {
-  .top-wrapper__img {
-    height: 90vh;
-  }
-}
-@media screen and (max-width: 320px) {
   .top-wrapper__img {
     height: 100vh;
   }
@@ -558,6 +586,7 @@ header .drawer {
 @media screen and (max-width: 1024px) {
   .about-wrapper {
     background-position: top 13% left 5%;
+    background-size: 40rem;
   }
 }
 @media screen and (max-width: 768px) {
@@ -579,30 +608,28 @@ header .drawer {
   width: 100%;
   height: 50rem;
 }
+@media screen and (max-width: 1024px) {
+  .about-wrapper__con {
+    height: 42rem;
+  }
+}
 @media screen and (max-width: 768px) {
   .about-wrapper__con {
     display: block;
-    padding-top: 10rem;
-    height: 35rem;
   }
 }
 @media screen and (max-width: 480px) {
   .about-wrapper__con {
     display: block;
-    padding-top: 6rem;
-    height: 35rem;
   }
 }
 .about-wrapper__con__left {
-  position: relative;
+  display: block;
   width: 50%;
-  height: 100%;
 }
 @media screen and (max-width: 768px) {
   .about-wrapper__con__left {
-    position: static;
     width: 100%;
-    height: 10rem;
   }
 }
 @media screen and (max-width: 320px) {
@@ -611,29 +638,29 @@ header .drawer {
   }
 }
 .about-wrapper__con__left__ttl {
-  position: absolute;
-  content: "";
-  top: 30%;
-  left: 30%;
-  width: 100%;
+  width: 90%;
   font-size: 2rem;
+  margin: 30% 0 0 25%;
 }
 @media screen and (max-width: 1024px) {
   .about-wrapper__con__left__ttl {
-    top: 18.5%;
-    left: 10%;
+    width: 100%;
+    font-size: 1.6rem;
+    margin: 30% 0 0 20%;
   }
 }
 @media screen and (max-width: 768px) {
   .about-wrapper__con__left__ttl {
-    position: static;
+    display: block;
     width: 100%;
     text-align: center;
+    margin: 5rem 0 4rem 0;
   }
 }
 @media screen and (max-width: 480px) {
   .about-wrapper__con__left__ttl {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
+    margin: 5rem 0 3rem 0;
   }
 }
 .about-wrapper__con__right {
@@ -1078,7 +1105,7 @@ header .drawer {
 .service-wrapper__con__box {
   position: relative;
   width: 32%;
-  height: 40vh;
+  height: 25em;
   margin-top: 5rem;
   z-index: 50;
   -webkit-box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5);
@@ -1087,13 +1114,12 @@ header .drawer {
 @media screen and (max-width: 1024px) {
   .service-wrapper__con__box {
     width: 40%;
-    height: 28vh;
   }
 }
 @media screen and (max-width: 768px) {
   .service-wrapper__con__box {
     width: 70%;
-    height: 40vh;
+    height: 25em;
     margin: 0 auto;
     margin-top: 5rem;
   }
@@ -1101,13 +1127,13 @@ header .drawer {
 @media screen and (max-width: 480px) {
   .service-wrapper__con__box {
     width: 85%;
-    height: 45vh;
+    height: 20em;
   }
 }
 @media screen and (max-width: 320px) {
   .service-wrapper__con__box {
     width: 85%;
-    height: 60vh;
+    height: 17em;
   }
 }
 .service-wrapper__con__box::before {

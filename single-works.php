@@ -1,5 +1,6 @@
 <?php get_header(); ?>
     <main>
+    <body>
         <section class="works-detail" id="works-detail">
             <div class="works-detail-wrapper">
                 <div class="works-detail-wrapper__top __top-bg-text">
@@ -57,4 +58,5 @@
             </div>
         </section>   
     </main>
+</body>
 <?php get_footer(); ?>

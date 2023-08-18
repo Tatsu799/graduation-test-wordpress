@@ -1,4 +1,5 @@
 <?php get_header(); ?>
+<body>
     <main>
         <section class="news-detail" id="news-detail">
             <div class="news-detail-wrapper">
@@ -48,4 +49,5 @@
             <div class="bg-footer"></div>
         </section>
     </main>
+</body>
 <?php get_footer(); ?>

@@ -6,6 +6,7 @@
         <div class="pulse-bubble pulse-bubble-3"></div>
         </div>
 </div>
+<body>
     <main>
         <section class="top" id="top">
             <div class="top-wrapper">
@@ -15,7 +16,7 @@
                     </h1>
                     <p>
                         ビジネスに適したホームページを作成し<br class="__sp">さらにビジネスを加速させる。<br>
-                        ホームページ作成、マーケティング、<br class="__sp">>運用全てお任せください。
+                        ホームページ作成、マーケティング、<br class="__sp">運用全てお任せください。
                     </p>
                 </div>
             </div>
@@ -260,4 +261,5 @@
             </div>
         </section>
     </main>
+</body>
 <?php get_footer(); ?>

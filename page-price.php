@@ -1,4 +1,5 @@
 <?php get_header(); ?>
+<body>
     <main>
         <section class="price-detail" id="price-detail">
             <div class="price-detail-wrapper">
@@ -125,4 +126,5 @@
             <div class="bg-footer"></div>
         </section>   
     </main>
+</body>
 <?php get_footer(); ?>
