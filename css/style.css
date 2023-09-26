@@ -887,10 +887,7 @@ header .drawer {
   }
 }
 .works-wrapper__con__btn .btn:hover {
-  border: none;
-  -webkit-transition: all 0.5s;
-  -o-transition: all 0.5s;
-  transition: all 0.5s;
+  border: solid 1px #fff;
   color: #000;
   font-weight: 600;
 }
@@ -1252,6 +1249,7 @@ header .drawer {
   height: 2rem;
   margin: 0 auto;
   padding: 1rem 1rem;
+  border: solid 1px #071125;
   border-radius: 50px 50px 50px 50px;
   background-color: #071125;
   color: #fff;
@@ -1268,10 +1266,7 @@ header .drawer {
 }
 .service-wrapper__btn .btn:hover {
   border: solid 1px #071125;
-  -webkit-transition: all 0.5s;
-  -o-transition: all 0.5s;
-  transition: all 0.5s;
-  color: #000;
+  color: #071125;
   font-weight: 600;
   z-index: 0;
 }
@@ -1471,6 +1466,7 @@ header .drawer {
   margin: 0 auto;
   padding: 1rem 1rem;
   border-radius: 50px 50px 50px 50px;
+  border: solid 1px #071125;
   background-color: #071125;
   color: #fff;
   -webkit-transition: 0.25s ease-in-out;
@@ -1486,9 +1482,6 @@ header .drawer {
 }
 .price-wrapper__btn .btn:hover {
   border: solid 1px #071125;
-  -webkit-transition: all 0.5s;
-  -o-transition: all 0.5s;
-  transition: all 0.5s;
   color: #000;
   font-weight: 600;
   z-index: 0;
@@ -1720,11 +1713,8 @@ header .drawer {
   }
 }
 .news-wrapper__btn .btn:hover {
-  border: none;
-  -webkit-transition: all 0.5s;
-  -o-transition: all 0.5s;
-  transition: all 0.5s;
-  color: #000;
+  border: solid 1px #fff;
+  color: #071125;
   font-weight: 600;
 }
 .news-wrapper__btn .btn:hover::before {
@@ -4017,6 +4007,7 @@ header .drawer {
   font-weight: normal;
   margin: 0 auto;
   border-radius: 50px 50px 50px 50px;
+  border: solid 1px #071125;
   position: relative;
   z-index: 10;
   -webkit-transition: 0.25s ease-in-out;
@@ -4034,9 +4025,6 @@ header .drawer {
 .contact-form-wrapper__con__form__box.__btn p:hover {
   background-color: #fff;
   border: solid 1px #071125;
-  -webkit-transition: all 0.5s;
-  -o-transition: all 0.5s;
-  transition: all 0.5s;
   color: #000;
   font-weight: 600;
   cursor: pointer;
