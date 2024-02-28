@@ -1,1 +1,1 @@
-# graduation-test-wordpress
+# samplesite:weblab
